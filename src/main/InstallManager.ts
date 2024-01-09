@@ -23,6 +23,7 @@ export class InstallManager {
         const abortController = new AbortController();
 
         const fragmenterContext = new FragmenterContext({ useConsoleLog: true }, abortController.signal);
+        url = url.replace('github', '521github');
         const fragmenterInstaller = new FragmenterInstaller(fragmenterContext, url, destDir, { temporaryDirectory: tempDir, forceManifestCacheBust: true });
 
         const forwardFragmenterInstallerEvent = (event: keyof FragmenterInstallerEvents) => {
